@@ -1,0 +1,5 @@
+from scapy.all import *
+packets=sniff(count=10)
+packets.summary()
+print(packets[0].show())
+print(packets[1].show())
