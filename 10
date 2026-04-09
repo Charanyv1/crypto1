@@ -1,0 +1,10 @@
+10a
+
+from scapy.all import *
+
+def callback(packet):
+    if packet.haslayer(ICMP):
+        print("ICMP Packet Detected")
+        packet.show()
+
+sniff(filter="icmp", prn=callback, count=10)
