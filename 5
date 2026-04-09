@@ -1,0 +1,26 @@
+5b
+
+nano p.sh
+
+#!/bin/bash
+
+read -p "Enter the target (IP or domain): " target
+read -p "Enter the starting port number: " start_port
+read -p "Enter the ending port number: " end_port
+
+echo "Scanning ports..."
+
+for ((port=start_port; port<=end_port; port++))
+do
+    nmap -p $port $target | grep "open"
+done
+
+echo "Scan completed."
+
+chmod +x p.sh
+./p.sh
+
+5c
+
+nmap 192.168.1.1
+nmap -sV 192.168.1.1
