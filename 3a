@@ -1,0 +1,7 @@
+from scapy.all import *
+result, unanswered=traceroute(["www.example.com","www.google.com"],maxttl=20)
+result.show()
+
+3c
+nmap -Sn 192.168.1.0/24
+nmap 192.168.1.1
