@@ -1,0 +1,25 @@
+8a 
+
+from scapy.all import *
+
+target = "www.example.com"
+
+for port in range(20, 25):
+    packet = IP(dst=target) / TCP(dport=port, flags="S")
+    response = sr1(packet, timeout=1, verbose=0)
+
+    if response is None:
+        print("Port", port, "is filtered or no response")
+
+    elif response.haslayer(TCP):
+        if response[TCP].flags == 0x12:
+            print("Port", port, "is OPEN")
+            send(IP(dst=target)/TCP(dport=port, flags="R"), verbose=0)
+
+        elif response[TCP].flags == 0x14:
+            print("Port", port, "is CLOSED")
+
+8b
+
+nmap --script vuln ip
+nmap --script vulm ip -oN t.txt
