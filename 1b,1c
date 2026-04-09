@@ -6,6 +6,7 @@ e=Ether()/packet
 e.show()
 
 1c
+nano p.sh
 
 #!/bin/bash
 
@@ -21,3 +22,6 @@ do
 done
 
 echo "Scan completed."
+
+chmod +x p.sh
+./p.sh
