@@ -1,0 +1,23 @@
+1b
+
+from scapy.all import *
+packet=IP()/TCP()
+e=Ether()/packet
+e.show()
+
+1c
+
+#!/bin/bash
+
+read -p "Enter the target (IP or domain): " target
+read -p "Enter the starting port number: " start_port
+read -p "Enter the ending port number: " end_port
+
+echo "Scanning ports..."
+
+for ((port=start_port; port<=end_port; port++))
+do
+    nmap -p $port $target | grep "open"
+done
+
+echo "Scan completed."
