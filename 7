@@ -1,0 +1,16 @@
+7a
+
+from scapy.all import *
+packet=IP(dst="8.8.8.8")/ICMP()
+send(packet)
+
+7b
+
+HTTP/1.1 200 OK
+Host: example.com
+Server: nooblinux
+
+<!doctype Html>
+<title>nnn</title>
+<h1>pp</h1>
+<img src = "">
