@@ -1,0 +1,5 @@
+12 a.
+
+from scapy.all import *
+result ,unanswered=traceroute(["www.example.com","www.google.com"],maxttl=20)
+result.show()
